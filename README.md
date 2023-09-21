@@ -44,9 +44,6 @@ Before running the backend, you need to configure the database connections.
 python app.py
 ```
 
-- Create a PostgreSQL database and update the connection details in `prisma/schema.prisma`.
-- Create a MongoDB database and update the connection details in `config/mongo.ts`.
-
 ### Q&A API
 
 Send a POST request to /api/qa with the context and question in the request body to get the answer.
