@@ -1,7 +1,6 @@
 from flask import Blueprint, jsonify, request
 from errors import handle_not_processable_error
 import numpy as np
-import sklearn.externals as extjoblib
 import joblib
 
 
@@ -142,6 +141,10 @@ list_a = [
     "yellow_crust_ooze",
 ]
 
+vital_ai_disease_prediction_model = joblib.load(
+    "ml_model/vital_ai_disease_prediction_model.pkl"
+)
+
 
 @disease_prediction_bp.route("/predict-disease", methods=["POST"])
 def disease_prediction_fn():
@@ -171,10 +174,6 @@ def disease_prediction_fn():
     test = list_c
     test = np.array(test)
     test = np.array(test).reshape(1, -1)
-
-    vital_ai_disease_prediction_model = joblib.load(
-        "ml_model/vital_ai_disease_prediction_model.pkl"
-    )
 
     prediction = vital_ai_disease_prediction_model.predict(test)
     result = prediction[0]
