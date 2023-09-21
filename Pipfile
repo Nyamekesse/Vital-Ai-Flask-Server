@@ -4,7 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-farm-haystack = "*"
+pinecone-client = "*"
+farm-haystack = "==1.17.2"
 sentence-transformers = "*"
 black = "*"
 torch = "*"
@@ -19,7 +20,8 @@ shortuuid = "*"
 pandas = "*"
 transformers = "*"
 flask-mongoengine = "*"
+
 [dev-packages]
 
 [requires]
-python_version = "3.11"
+python_version = "3.10"

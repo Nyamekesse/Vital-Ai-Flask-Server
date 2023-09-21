@@ -4,14 +4,14 @@ from exts import db
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_bcrypt import Bcrypt
+from blueprints.question_and_answering.question_and_answering_route import (
+    question_and_answering_bp,
+)
 from blueprints.disease_prediction.disease_prediction_routes import (
     disease_prediction_bp,
 )
 from blueprints.drug_recommendation.drug_recommendation_route import (
     drug_recommendation_bp,
-)
-from blueprints.question_and_answering.question_and_answering_route import (
-    question_and_answering_bp,
 )
 
 
