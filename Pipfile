@@ -4,8 +4,21 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-
+farm-haystack = "*"
+sentence-transformers = "*"
+black = "*"
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+flask = "==2.2.4"
+flask-bcrypt = "*"
+python-decouple = "*"
+flask-jwt-extended = "*"
+flask-cors = "*"
+shortuuid = "*"
+pandas = "*"
+transformers = "*"
+flask-mongoengine = "*"
 [dev-packages]
 
 [requires]
