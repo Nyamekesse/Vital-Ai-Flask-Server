@@ -142,7 +142,7 @@ list_a = [
 ]
 
 vital_ai_disease_prediction_model = joblib.load(
-    "ml_model/vital_ai_disease_prediction_model.pkl"
+    "ml_models/vital_ai_disease_prediction_model.pkl"
 )
 
 
@@ -160,12 +160,11 @@ def disease_prediction_fn():
         return handle_not_processable_error("All five symptoms required")
 
     list_b = [s1, s2, s3, s4, s5]
-    # Loop to convert all symptoms into 0's
-    list_c = []  # EMpty list to store disease symptoms converted into 0's and 1's
+
+    list_c = []
     for x in range(0, len(list_a)):
         list_c.append(0)
 
-    # For all matched specific disease symptoms in general put 1 and unmatched put 0
     for z in range(0, len(list_a)):
         for k in list_b:
             if k == list_a[z]:
