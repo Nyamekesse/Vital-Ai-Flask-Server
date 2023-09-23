@@ -39,7 +39,7 @@ def recommend_drug_fn():
     data = request.get_json()
     if not data:
         return handle_not_processable_error("")
-    if not data["disease"] or data["sex"] or data["age"]:
+    if not data["disease"] or not data["sex"] or not data["age"]:
         return handle_not_processable_error("")
     patient_disease = data["disease"]
     sex = 1 if data["sex"].lower() == "male" else 0

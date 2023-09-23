@@ -5,12 +5,14 @@ from haystack.nodes import EmbeddingRetriever
 from haystack.pipelines import GenerativeQAPipeline
 from haystack.nodes import Seq2SeqGenerator
 
-from errors import handle_not_processable_error
+from errors import handle_internal_server_error, handle_not_processable_error
 
 question_and_answering_bp = Blueprint("query", __name__)
 
 API_KEY = config("DOC_STORE_API_KEY")
 DOC_STORE_ENV = config("DOC_STORE_ENV")
+
+
 document_store = PineconeDocumentStore(
     api_key=API_KEY,
     index="vital-ai",
@@ -43,7 +45,7 @@ def question_and_answering_fn():
             query=user_query,
             params={"Retriever": {"top_k": 3}, "Generator": {"top_k": 1}},
         )["answers"][0].answer
+        return jsonify({"result": result})
     except Exception as e:
         print(e)
-
-    return jsonify({"result": result})
+        return handle_internal_server_error("")
