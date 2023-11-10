@@ -4,21 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pinecone-client = "*"
-farm-haystack = "==1.17.2"
-sentence-transformers = "*"
 black = "*"
-torch = "*"
-torchvision = "*"
-torchaudio = "*"
 flask = "==2.2.4"
 flask-bcrypt = "*"
 python-decouple = "*"
 flask-jwt-extended = "*"
 flask-cors = "*"
 shortuuid = "*"
-pandas = "*"
-transformers = "*"
 flask-mongoengine = "*"
 gunicorn = "*"
 
