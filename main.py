@@ -21,6 +21,7 @@ def create_app():
         app.config.from_object(TestConfig)
     else:
         app.config.from_object(DevConfig)
+
     with app.app_context():
         CORS(app)
         Bcrypt(app)
@@ -28,5 +29,9 @@ def create_app():
         db.init_app(app)
         app.register_blueprint(drug_recommendation_bp, url_prefix="/api")
         app.register_blueprint(disease_prediction_bp, url_prefix="/api")
+
+        @app.route("/api/ping", methods=["GET"])
+        def ping():
+            return "Server is active!"
 
     return app
